@@ -1,0 +1,37 @@
+enum BillingKind {
+  FREE
+  PAID
+  OTHER
+}
+
+type Schema {
+  id: String!
+  name: String!
+  uri: String!
+  description: String
+  isActive: Boolean!
+  isPublic: Boolean!
+
+  organization: Organization!
+}
+
+type Organization {
+  id: String!
+  kind: BillingKind!
+  name: String!
+  description: String
+  uri: String!
+  email: String!
+  phone: String
+  isActive: Boolean!
+  isPublic: Boolean!
+
+  schemas: [Schema!]!
+}
+
+type Query {
+  hello(name: String): String
+
+  organizations: [Organization]
+  organization(id: String): Organization
+}

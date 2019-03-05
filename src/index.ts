@@ -15,6 +15,15 @@ const resolvers = {
       return {}
     },
   },
+
+  Mutation: {
+    async createOrganization(_: any, { input }) {
+      return {
+        ...input,
+        id: 'testing',
+      }
+    },
+  },
 }
 
 const server = new GraphQLServer({

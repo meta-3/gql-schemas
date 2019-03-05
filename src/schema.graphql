@@ -35,3 +35,19 @@ type Query {
   organizations: [Organization]
   organization(id: String): Organization
 }
+
+input OrganizationCreateInput {
+  kind: BillingKind!
+  name: String!
+  description: String
+  uri: String!
+  email: String!
+  phone: String
+  isActive: Boolean!
+  isPublic: Boolean!
+}
+
+type Mutation {
+
+  createOrganization(input: OrganizationCreateInput): Organization
+}
